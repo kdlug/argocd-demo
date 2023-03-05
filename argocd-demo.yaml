@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/kdlug/argocd-demo
     targetRevision: HEAD
     path: applications
+    directory:
+      recurse: true # <--- Here
   destination:
     server: https://kubernetes.default.svc
     namespace: default
