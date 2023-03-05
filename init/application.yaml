@@ -6,7 +6,7 @@ metadata:
 project: default
 source:
   repoURL: 'https://github.com/kdlug/argocd-demo'
-  path: applications
+  path: init
   targetRevision: HEAD
   directory:
     recurse: true
