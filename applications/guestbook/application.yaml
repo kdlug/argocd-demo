@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-ingress
+  namespace: argocd # namespace of application itself
+spec:
+  project: default
+  source:
+    chart: "nginx-ingress"
+    repoURL: https://charts.helm.sh/stable
+    targetRevision: 1.24.3
+    helm:
+      releaseName: nginx-ingress
+      parameters:
+        - name: controller.image.pullPolicy
+          value: IfNotPresent
+      #valueFiles:
+      #  - values/production.yaml 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
